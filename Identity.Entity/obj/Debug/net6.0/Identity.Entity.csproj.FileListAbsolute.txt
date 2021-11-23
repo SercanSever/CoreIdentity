@@ -1,0 +1,14 @@
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Entity\obj\Debug\net6.0\Identity.Entity.csproj.AssemblyReference.cache
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Entity\obj\Debug\net6.0\Identity.Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Entity\obj\Debug\net6.0\Identity.Entity.AssemblyInfoInputs.cache
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Entity\obj\Debug\net6.0\Identity.Entity.AssemblyInfo.cs
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Entity\obj\Debug\net6.0\Identity.Entity.csproj.CoreCompileInputs.cache
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Entity\bin\Debug\net6.0\Identity.Entity.deps.json
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Entity\bin\Debug\net6.0\Identity.Entity.runtimeconfig.json
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Entity\bin\Debug\net6.0\Identity.Entity.dll
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Entity\bin\Debug\net6.0\ref\Identity.Entity.dll
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Entity\bin\Debug\net6.0\Identity.Entity.pdb
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Entity\obj\Debug\net6.0\Identity.Entity.dll
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Entity\obj\Debug\net6.0\ref\Identity.Entity.dll
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Entity\obj\Debug\net6.0\Identity.Entity.pdb
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Entity\obj\Debug\net6.0\Identity.Entity.genruntimeconfig.cache
