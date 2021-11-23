@@ -15629,11 +15629,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -15641,11 +15636,6 @@
     {
       "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
