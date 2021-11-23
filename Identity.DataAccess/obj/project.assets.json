@@ -2129,11 +2129,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.DataAccess\\Identity.DataAccess.csproj",
+      "projectUniqueName": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.DataAccess\\Identity.DataAccess.csproj",
       "projectName": "Identity.DataAccess",
-      "projectPath": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.DataAccess\\Identity.DataAccess.csproj",
+      "projectPath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.DataAccess\\Identity.DataAccess.csproj",
       "packagesPath": "C:\\Users\\Sercan Sever\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.DataAccess\\obj\\",
+      "outputPath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

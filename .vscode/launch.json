@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Identity.Web/bin/Debug/net5.0/Identity.Web.dll",
+            "program": "${workspaceFolder}/Identity.Web/bin/Debug/net6.0/Identity.Web.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Identity.Web",
             "stopAtEntry": false,

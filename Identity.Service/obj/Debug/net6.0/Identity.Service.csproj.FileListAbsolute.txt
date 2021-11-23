@@ -1,0 +1,17 @@
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\obj\Debug\net6.0\Identity.Service.csproj.AssemblyReference.cache
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\obj\Debug\net6.0\Identity.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\obj\Debug\net6.0\Identity.Service.AssemblyInfoInputs.cache
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\obj\Debug\net6.0\Identity.Service.AssemblyInfo.cs
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\obj\Debug\net6.0\Identity.Service.csproj.CoreCompileInputs.cache
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\bin\Debug\net6.0\Identity.Service.deps.json
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\bin\Debug\net6.0\Identity.Service.dll
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\bin\Debug\net6.0\ref\Identity.Service.dll
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\bin\Debug\net6.0\Identity.Service.pdb
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\bin\Debug\net6.0\Identity.DataAccess.dll
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\bin\Debug\net6.0\Identity.Entity.dll
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\bin\Debug\net6.0\Identity.DataAccess.pdb
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\bin\Debug\net6.0\Identity.Entity.pdb
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\obj\Debug\net6.0\Identity.Service.csproj.CopyComplete
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\obj\Debug\net6.0\Identity.Service.dll
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\obj\Debug\net6.0\ref\Identity.Service.dll
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Service\obj\Debug\net6.0\Identity.Service.pdb

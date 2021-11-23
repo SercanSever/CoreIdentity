@@ -2,6 +2,31 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Autofac/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Diagnostics.DiagnosticSource": "4.7.1"
+        },
+        "compile": {
+          "lib/netstandard2.1/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Autofac.dll": {}
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/7.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Autofac.Extensions.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Autofac.Extensions.DependencyInjection.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -768,10 +793,66 @@
         "runtime": {
           "bin/placeholder/Identity.Entity.dll": {}
         }
+      },
+      "Identity.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Autofac.Extensions.DependencyInjection": "7.2.0",
+          "Identity.DataAccess": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Identity.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Identity.Service.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "Autofac/6.0.0": {
+      "sha512": "tRVRXGxwXbQmPy1ZGso115O55ffVW4mWtufjOy7hduQ1BNVR1j7RQQjxpYuB6tJw5OrgqRWYVJLJ8RwYNz/j+A==",
+      "type": "package",
+      "path": "autofac/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "autofac.6.0.0.nupkg.sha512",
+        "autofac.nuspec",
+        "icon.png",
+        "lib/netstandard2.0/Autofac.dll",
+        "lib/netstandard2.0/Autofac.pdb",
+        "lib/netstandard2.0/Autofac.xml",
+        "lib/netstandard2.1/Autofac.dll",
+        "lib/netstandard2.1/Autofac.pdb",
+        "lib/netstandard2.1/Autofac.xml"
+      ]
+    },
+    "Autofac.Extensions.DependencyInjection/7.2.0": {
+      "sha512": "S2Jor8pTV+8QSs96ENq/FhGdnrWsntGs93z0OXYlIivUWGPNXQHNCjFPfSBeBlHClvJFEXMvlkY32bAKy2YkPg==",
+      "type": "package",
+      "path": "autofac.extensions.dependencyinjection/7.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "autofac.extensions.dependencyinjection.7.2.0.nupkg.sha512",
+        "autofac.extensions.dependencyinjection.nuspec",
+        "icon.png",
+        "lib/net5.0/Autofac.Extensions.DependencyInjection.dll",
+        "lib/net5.0/Autofac.Extensions.DependencyInjection.pdb",
+        "lib/net5.0/Autofac.Extensions.DependencyInjection.xml",
+        "lib/net6.0/Autofac.Extensions.DependencyInjection.dll",
+        "lib/net6.0/Autofac.Extensions.DependencyInjection.pdb",
+        "lib/net6.0/Autofac.Extensions.DependencyInjection.xml",
+        "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll",
+        "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.pdb",
+        "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.xml",
+        "lib/netstandard2.1/Autofac.Extensions.DependencyInjection.dll",
+        "lib/netstandard2.1/Autofac.Extensions.DependencyInjection.pdb",
+        "lib/netstandard2.1/Autofac.Extensions.DependencyInjection.xml"
+      ]
+    },
     "Humanizer.Core/2.8.26": {
       "sha512": "OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "type": "package",
@@ -2133,12 +2214,19 @@
       "type": "project",
       "path": "../Identity.Entity/Identity.Entity.csproj",
       "msbuildProject": "../Identity.Entity/Identity.Entity.csproj"
+    },
+    "Identity.Service/1.0.0": {
+      "type": "project",
+      "path": "../Identity.Service/Identity.Service.csproj",
+      "msbuildProject": "../Identity.Service/Identity.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Autofac.Extensions.DependencyInjection >= 7.2.0",
       "Identity.DataAccess >= 1.0.0",
       "Identity.Entity >= 1.0.0",
+      "Identity.Service >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.Facebook >= 6.0.0",
       "Microsoft.AspNetCore.Authentication.Google >= 6.0.0",
       "Microsoft.AspNetCore.Authentication.MicrosoftAccount >= 6.0.0",
@@ -2185,6 +2273,9 @@
             },
             "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Entity\\Identity.Entity.csproj": {
               "projectPath": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Entity\\Identity.Entity.csproj"
+            },
+            "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Service\\Identity.Service.csproj": {
+              "projectPath": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Service\\Identity.Service.csproj"
             }
           }
         }
@@ -2199,6 +2290,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Autofac.Extensions.DependencyInjection": {
+            "target": "Package",
+            "version": "[7.2.0, )"
+          },
           "Microsoft.AspNetCore.Authentication.Facebook": {
             "target": "Package",
             "version": "[6.0.0, )"

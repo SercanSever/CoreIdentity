@@ -64,3 +64,7 @@ C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web\obj\Debug\net6.0\Identit
 C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web\obj\Debug\net6.0\Identity.Web.genruntimeconfig.cache
 C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web\bin\Debug\net6.0\Identity.Entity.dll
 C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web\bin\Debug\net6.0\Identity.Entity.pdb
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web\bin\Debug\net6.0\Autofac.dll
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web\bin\Debug\net6.0\Autofac.Extensions.DependencyInjection.dll
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web\bin\Debug\net6.0\Identity.Service.dll
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web\bin\Debug\net6.0\Identity.Service.pdb
