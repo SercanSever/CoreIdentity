@@ -1,11 +1,16 @@
+using Identity.Entity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace Identity.DataAccess.Context
 {
-    public class IdentityContext : IdentityDbContext
+    public class IdentityContext : IdentityDbContext<User, Role, string>
     {
+        public IdentityContext()
+        {
+
+        }
         public IdentityContext(DbContextOptions<IdentityContext> options) : base(options)
         {
 

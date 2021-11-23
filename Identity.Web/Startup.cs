@@ -30,7 +30,7 @@ namespace Identity.Web
             services.AddDbContext<IdentityContext>(opt =>
             opt.UseSqlServer(Configuration.GetConnectionString("IdentityConnectionStr"), b => b.MigrationsAssembly("Identity.Web")));
 
-            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<IdentityContext>();
+            services.AddIdentity<User, Role>().AddEntityFrameworkStores<IdentityContext>();
 
             services.AddControllersWithViews();
         }

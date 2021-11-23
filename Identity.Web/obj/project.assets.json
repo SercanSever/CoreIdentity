@@ -734,6 +734,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Identity.Entity": "1.0.0",
           "Microsoft.AspNetCore.Authentication.Facebook": "6.0.0",
           "Microsoft.AspNetCore.Authentication.Google": "6.0.0",
           "Microsoft.AspNetCore.Authentication.MicrosoftAccount": "6.0.0",

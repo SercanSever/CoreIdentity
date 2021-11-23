@@ -12,3 +12,6 @@ C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.DataAccess\obj\Debug\net6.0\
 C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.DataAccess\obj\Debug\net6.0\ref\Identity.DataAccess.dll
 C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.DataAccess\obj\Debug\net6.0\Identity.DataAccess.pdb
 C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.DataAccess\obj\Debug\net6.0\Identity.DataAccess.genruntimeconfig.cache
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.DataAccess\bin\Debug\net6.0\Identity.Entity.dll
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.DataAccess\bin\Debug\net6.0\Identity.Entity.pdb
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.DataAccess\obj\Debug\net6.0\Identity.DataAccess.csproj.CopyComplete

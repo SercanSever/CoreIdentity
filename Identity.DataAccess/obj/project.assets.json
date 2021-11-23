@@ -729,6 +729,25 @@
             "rid": "win"
           }
         }
+      },
+      "Identity.Entity/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Facebook": "6.0.0",
+          "Microsoft.AspNetCore.Authentication.Google": "6.0.0",
+          "Microsoft.AspNetCore.Authentication.MicrosoftAccount": "6.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
+          "Microsoft.EntityFrameworkCore.Tools": "6.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Identity.Entity.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Identity.Entity.dll": {}
+        }
       }
     }
   },
@@ -2084,10 +2103,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Identity.Entity/1.0.0": {
+      "type": "project",
+      "path": "../Identity.Entity/Identity.Entity.csproj",
+      "msbuildProject": "../Identity.Entity/Identity.Entity.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Identity.Entity >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.Facebook >= 6.0.0",
       "Microsoft.AspNetCore.Authentication.Google >= 6.0.0",
       "Microsoft.AspNetCore.Authentication.MicrosoftAccount >= 6.0.0",
@@ -2104,11 +2129,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.DataAccess\\Identity.DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.DataAccess\\Identity.DataAccess.csproj",
       "projectName": "Identity.DataAccess",
-      "projectPath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.DataAccess\\Identity.DataAccess.csproj",
+      "projectPath": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.DataAccess\\Identity.DataAccess.csproj",
       "packagesPath": "C:\\Users\\Sercan Sever\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2128,7 +2153,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Entity\\Identity.Entity.csproj": {
+              "projectPath": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Entity\\Identity.Entity.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

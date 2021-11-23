@@ -31,7 +31,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Entity\\Identity.Entity.csproj": {
+                "projectPath": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Entity\\Identity.Entity.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
