@@ -1,8 +1,8 @@
 @model UserViewModel
 @{
-   Layout = "_ValidationScriptsPartial";
+   Layout = null;
 }
-
+@await Html.PartialAsync("_ValidationScriptsPartial");
 <link rel="stylesheet" href="~/Views/Login/SignIn.css" />
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/site.css" />

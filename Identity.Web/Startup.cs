@@ -32,6 +32,9 @@ namespace Identity.Web
          opt.UseSqlServer(Configuration.GetConnectionString("IdentityConnectionStr"), b => b.MigrationsAssembly("Identity.Web")));
          services.AddIdentity<User, Role>(opt =>
          {
+            opt.User.AllowedUserNameCharacters= "abcçdefgğhıijklmnoöpqrsştuüvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+            opt.User.RequireUniqueEmail = true;
+
             opt.Password.RequiredLength = 4;
             opt.Password.RequireNonAlphanumeric = false;
             opt.Password.RequireLowercase = false;
