@@ -32,24 +32,11 @@ namespace Identity.Web
          services.AddDbContext<IdentityContext>(opt =>
          opt.UseSqlServer(Configuration.GetConnectionString("IdentityConnectionStr"), b => b.MigrationsAssembly("Identity.Web")));
 
-         CookieBuilder cookieBuilder = new CookieBuilder();
-         cookieBuilder.Name = "MyPrettyCookie";
-         cookieBuilder.HttpOnly = true;
-         cookieBuilder.Expiration = TimeSpan.FromDays(60);
-         cookieBuilder.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-         cookieBuilder.SameSite = SameSiteMode.Strict;
-
-         services.ConfigureApplicationCookie(opt=> {
-            opt.LoginPath = new PathString("/Login/SignIn"); 
-            opt.AccessDeniedPath = new PathString("/Login/AccessDenied");
-            opt.Cookie = cookieBuilder;
-            opt.SlidingExpiration = true;
-         });
 
 
          services.AddIdentity<User, Role>(opt =>
          {
-            opt.User.AllowedUserNameCharacters= "abcçdefgğhıijklmnoöpqrsştuüvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+            opt.User.AllowedUserNameCharacters = "abcçdefgğhıijklmnoöpqrsştuüvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
             opt.User.RequireUniqueEmail = true;
 
             opt.Password.RequiredLength = 4;
@@ -57,14 +44,31 @@ namespace Identity.Web
             opt.Password.RequireLowercase = false;
             opt.Password.RequireUppercase = false;
             opt.Password.RequireDigit = false;
-         })
-         .AddPasswordValidator<CustomePasswordValidator>()
+         }).AddPasswordValidator<CustomePasswordValidator>()
          .AddUserValidator<CustomUserValidator>()
          .AddErrorDescriber<CustomeIdentityErrorDescriber>()
          .AddEntityFrameworkStores<IdentityContext>();
 
-         
-         services.AddControllersWithViews();
+
+
+         CookieBuilder cookieBuilder = new CookieBuilder();
+         cookieBuilder.Name = "MyPrettyCookie";
+         cookieBuilder.HttpOnly = true;
+         cookieBuilder.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+         cookieBuilder.SameSite = SameSiteMode.Strict;
+
+         services.ConfigureApplicationCookie(opt =>
+         {
+            opt.LoginPath = new PathString("/Login/SignIn");
+            opt.AccessDeniedPath = new PathString("/Login/AccessDenied");
+            opt.Cookie = cookieBuilder;
+            opt.ExpireTimeSpan = TimeSpan.FromDays(14);
+            opt.SlidingExpiration = true;
+         });
+
+
+          services.AddControllersWithViews();
+
       }
 
       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -22,15 +22,15 @@ namespace Identity.Web.Controllers
          return View();
       }
       [HttpPost]
-      public async Task<IActionResult> SignIn(UserViewModel userViewModel)
+      public async Task<IActionResult> SignIn(LoginViewModel loginViewModel)
       {
          if (ModelState.IsValid)
          {
-            var user = await _userManager.FindByEmailAsync(userViewModel.Email);
+            var user = await _userManager.FindByEmailAsync(loginViewModel.Email);
             if (user != null)
             {
                await _signInManager.SignOutAsync();
-               var result = await _signInManager.PasswordSignInAsync(user, userViewModel.Password, false, false);
+               var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, false, false);
                if (result.Succeeded)
                {
                   return RedirectToAction("Index", "Home");
@@ -39,7 +39,7 @@ namespace Identity.Web.Controllers
                {
                   ModelState.AddModelError(nameof(LoginViewModel.Email), "There is no such user");
                }
-               return View(userViewModel);
+               return View(loginViewModel);
             }
          }
          return View();
