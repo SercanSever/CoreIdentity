@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Identity.DataAccess.Context;
 using Identity.Entity;
+using Identity.Service.CustomValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,7 +37,7 @@ namespace Identity.Web
             opt.Password.RequireLowercase = false;
             opt.Password.RequireUppercase = false;
             opt.Password.RequireDigit = false;
-         }).AddEntityFrameworkStores<IdentityContext>();
+         }).AddPasswordValidator<CustomePasswordValidator>().AddEntityFrameworkStores<IdentityContext>();
          services.AddControllersWithViews();
       }
 
