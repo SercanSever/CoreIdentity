@@ -9,9 +9,11 @@ namespace Identity.Web.Controllers
    public class LoginController : Controller
    {
       private readonly UserManager<User> _userManager;
-      public LoginController(UserManager<User> userManager)
+      private readonly SignInManager<User> _signInManager;
+      public LoginController(UserManager<User> userManager,SignInManager<User> signInManager)
       {
          _userManager = userManager;
+         _signInManager = signInManager;
       }
 
       #region Login
@@ -24,7 +26,17 @@ namespace Identity.Web.Controllers
       {
           if (ModelState.IsValid)
           {
-              
+              var user = await _userManager.FindByEmailAsync(userViewModel.Email);
+              if (user!=null)
+              {
+                  await _signInManager.SignOutAsync();
+                  var result = await _signInManager.PasswordSignInAsync(user,userViewModel.Password,false,false);
+                  if (result.Succeeded)
+                  {
+                        return RedirectToAction("Index","Home");
+                  }
+                  return View(userViewModel);
+              }
           }
          return View();
       }
