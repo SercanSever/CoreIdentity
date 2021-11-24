@@ -47,7 +47,7 @@ namespace Identity.Web
          }).AddPasswordValidator<CustomePasswordValidator>()
          .AddUserValidator<CustomUserValidator>()
          .AddErrorDescriber<CustomeIdentityErrorDescriber>()
-         .AddEntityFrameworkStores<IdentityContext>();
+         .AddEntityFrameworkStores<IdentityContext>().AddDefaultTokenProviders();
 
 
 
@@ -67,7 +67,7 @@ namespace Identity.Web
          });
 
 
-          services.AddControllersWithViews();
+         services.AddControllersWithViews();
 
       }
 

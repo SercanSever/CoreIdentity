@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Identity.Entity;
+using Identity.Service.Helpers.EmailHelper;
 using Identity.Web.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -104,22 +105,36 @@ namespace Identity.Web.Controllers
       #endregion
 
       #region ForgotPassword
-      public IActionResult ForgotPassword(){
+      public IActionResult ForgotPassword()
+      {
          return View();
-      }    
+      }
       [HttpPost]
-      public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel forgotPasswordViewModel){
+      public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel forgotPasswordViewModel)
+      {
 
          if (ModelState.IsValid)
          {
-             var user = await  _userManager.FindByEmailAsync(forgotPasswordViewModel.Email);
-             if (user != null)
-             {
-                 var passwordRestToke = await _userManager.GeneratePasswordResetTokenAsync(user);
-             }
+            var user = await _userManager.FindByEmailAsync(forgotPasswordViewModel.Email);
+            if (user != null)
+            {
+               var passwordRestToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+               var passwordResetLink = Url.Action("ResetPasswordConfirm", "Login", new
+               {
+
+                  userId = user.Id,
+                  token = passwordRestToken
+               }, HttpContext.Request.Scheme);
+
+               PasswordReset.PasswordResetSendEmail(passwordResetLink, user.Email);
+            
+               ViewBag.status = "Successful" ;
+            }else{
+               ModelState.AddModelError("","There is no such email address");
+            }
          }
-         return View();
-      }    
+         return View(forgotPasswordViewModel);
+      }
       #endregion
    }
 }
