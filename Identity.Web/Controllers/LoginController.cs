@@ -106,9 +106,20 @@ namespace Identity.Web.Controllers
       #region ForgotPassword
       public IActionResult ForgotPassword(){
          return View();
-      }     
+      }    
+      [HttpPost]
+      public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel forgotPasswordViewModel){
+
+         if (ModelState.IsValid)
+         {
+             var user = await  _userManager.FindByEmailAsync(forgotPasswordViewModel.Email);
+             if (user != null)
+             {
+                 var passwordRestToke = await _userManager.GeneratePasswordResetTokenAsync(user);
+             }
+         }
+         return View();
+      }    
       #endregion
-
-
    }
 }
