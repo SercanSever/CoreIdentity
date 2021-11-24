@@ -40,7 +40,10 @@ namespace Identity.Web
             opt.Password.RequireLowercase = false;
             opt.Password.RequireUppercase = false;
             opt.Password.RequireDigit = false;
-         }).AddPasswordValidator<CustomePasswordValidator>().AddEntityFrameworkStores<IdentityContext>();
+         })
+         .AddPasswordValidator<CustomePasswordValidator>()
+         .AddUserValidator<CustomUserValidator>()
+         .AddEntityFrameworkStores<IdentityContext>();
          services.AddControllersWithViews();
       }
 
