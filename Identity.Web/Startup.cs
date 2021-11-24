@@ -43,6 +43,7 @@ namespace Identity.Web
          })
          .AddPasswordValidator<CustomePasswordValidator>()
          .AddUserValidator<CustomUserValidator>()
+         .AddErrorDescriber<CustomeIdentityErrorDescriber>()
          .AddEntityFrameworkStores<IdentityContext>();
 
          
