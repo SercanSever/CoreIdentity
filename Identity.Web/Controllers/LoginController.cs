@@ -17,8 +17,9 @@ namespace Identity.Web.Controllers
       }
 
       #region Login
-      public IActionResult SignIn()
+      public IActionResult SignIn(string returnUrl)
       {
+         TempData["ReturnUrl"] = returnUrl;
          return View();
       }
       [HttpPost]
@@ -30,9 +31,12 @@ namespace Identity.Web.Controllers
             if (user != null)
             {
                await _signInManager.SignOutAsync();
-               var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, false, false);
+               var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, loginViewModel.RememberMe, false);
                if (result.Succeeded)
                {
+                  if(TempData["ReturnUrl"] != null){
+                     return Redirect(TempData["ReturnUrl"].ToString());
+                  }
                   return RedirectToAction("Index", "Home");
                }
                else

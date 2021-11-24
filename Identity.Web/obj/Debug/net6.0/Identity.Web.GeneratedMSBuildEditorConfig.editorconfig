@@ -8,49 +8,49 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Identity.Web
 build_property.RootNamespace = Identity.Web
-build_property.ProjectDir = C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web\
+build_property.ProjectDir = c:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web
+build_property.MSBuildProjectDirectory = c:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/Admin/Home.cshtml]
+[c:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/Admin/Home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSG9tZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/Home/Index.cshtml]
+[c:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/Login/SignIn.cshtml]
+[c:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/Login/SignIn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cU2lnbkluLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/Login/SignUp.cshtml]
+[c:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/Login/SignUp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cU2lnblVwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/Shared/Error.cshtml]
+[c:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/Shared/_AdminLayout.cshtml]
+[c:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/Shared/_Layout.cshtml]
+[c:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/_ViewImports.cshtml]
+[c:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/_ViewStart.cshtml]
+[c:/Users/Sercan Sever/Desktop/CoreIdentity/Identity.Web/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
