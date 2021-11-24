@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Identity.Entity;
 using Identity.Web.Models.ViewModels;
@@ -30,23 +31,43 @@ namespace Identity.Web.Controllers
             var user = await _userManager.FindByEmailAsync(loginViewModel.Email);
             if (user != null)
             {
+               if (await _userManager.IsLockedOutAsync(user))
+               {
+                  ModelState.AddModelError("", "Your account has been locked for a few minutes. Please try again later");
+               }
                await _signInManager.SignOutAsync();
                var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, loginViewModel.RememberMe, false);
                if (result.Succeeded)
                {
-                  if(TempData["ReturnUrl"] != null){
+                  await _userManager.ResetAccessFailedCountAsync(user); //0
+
+                  if (TempData["ReturnUrl"] != null)
+                  {
                      return Redirect(TempData["ReturnUrl"].ToString());
                   }
                   return RedirectToAction("Index", "Home");
                }
                else
                {
-                  ModelState.AddModelError(nameof(LoginViewModel.Email), "There is no such user");
+                  await _userManager.AccessFailedAsync(user);
+                  int fail = await _userManager.GetAccessFailedCountAsync(user);
+                  if (fail == 3)
+                  {
+                     await _userManager.SetLockoutEndDateAsync(user, new DateTimeOffset(DateTime.Now.AddMinutes(10)));
+                     ModelState.AddModelError("", "Account locked cause 3 fail login attempt. Please try 10 minutes later");
+                  }
+                  else
+                  {
+                     ModelState.AddModelError(nameof(LoginViewModel.Email), "There is no such user");
+                  }
                }
-               return View(loginViewModel);
+            }
+            else
+            {
+               ModelState.AddModelError(nameof(LoginViewModel.Email), "There is no such user");
             }
          }
-         return View();
+         return View(loginViewModel);
       }
       #endregion
 
