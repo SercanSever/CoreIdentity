@@ -12,6 +12,7 @@ namespace Identity.Web.Models.ViewModels
         [EmailAddress(ErrorMessage="E-mail is not in valid format")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Password is required." )]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
     }
 }

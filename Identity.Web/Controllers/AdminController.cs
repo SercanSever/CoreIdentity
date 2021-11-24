@@ -15,7 +15,6 @@ namespace Identity.Web.Controllers
         {
             _userManager = userManager;
         }
-
         public IActionResult Home()
         {
             var usersList = _userManager.Users.ToList();
