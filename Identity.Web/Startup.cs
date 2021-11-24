@@ -44,6 +44,8 @@ namespace Identity.Web
          .AddPasswordValidator<CustomePasswordValidator>()
          .AddUserValidator<CustomUserValidator>()
          .AddEntityFrameworkStores<IdentityContext>();
+
+         
          services.AddControllersWithViews();
       }
 
