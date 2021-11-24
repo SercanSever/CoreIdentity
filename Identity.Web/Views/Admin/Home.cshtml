@@ -1,8 +1,10 @@
 @model List<User>
 
-@Layout = "~/Views/Shared/_AdminLayout.cshtml";
+@{
+    Layout = "_AdminLayout";
+}
 
-<div class="table table-bordered table-striped">
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Id</th>
@@ -12,16 +14,17 @@
 
     </thead>
     <tbody>
-
-        @foreach (var user in Model)
-
+        @if (Model.Count > 0)
         {
-            <tr>
-                <th>@user.Id</th>
-                <th>@user.UserName</th>
-                <th>@user.Email</th>
-            </tr>
-
+            @foreach (var user in Model) 
+            {
+                <tr>
+                    <th>@user.Id</th>
+                    <th>@user.UserName</th>
+                    <th>@user.Email</th>
+                </tr>
+            }
         }
     </tbody>
-</div>
+</table>
+       <div class="d-flex justify-content-center">Hiç bir üye yok..</div>

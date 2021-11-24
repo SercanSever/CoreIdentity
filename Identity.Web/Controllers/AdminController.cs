@@ -19,7 +19,7 @@ namespace Identity.Web.Controllers
         public IActionResult Home()
         {
             var usersList = _userManager.Users.ToList();
-            return View();
+            return View(usersList);
         }
     }
 }
