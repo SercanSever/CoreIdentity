@@ -7,6 +7,7 @@ using Identity.Entity;
 using Identity.Service.CustomValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -30,6 +31,22 @@ namespace Identity.Web
       {
          services.AddDbContext<IdentityContext>(opt =>
          opt.UseSqlServer(Configuration.GetConnectionString("IdentityConnectionStr"), b => b.MigrationsAssembly("Identity.Web")));
+
+         CookieBuilder cookieBuilder = new CookieBuilder();
+         cookieBuilder.Name = "MyPrettyCookie";
+         cookieBuilder.HttpOnly = true;
+         cookieBuilder.Expiration = TimeSpan.FromDays(60);
+         cookieBuilder.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+         cookieBuilder.SameSite = SameSiteMode.Strict;
+
+         services.ConfigureApplicationCookie(opt=> {
+            opt.LoginPath = new PathString("/Login/SignIn"); 
+            opt.AccessDeniedPath = new PathString("/Login/AccessDenied");
+            opt.Cookie = cookieBuilder;
+            opt.SlidingExpiration = true;
+         });
+
+
          services.AddIdentity<User, Role>(opt =>
          {
             opt.User.AllowedUserNameCharacters= "abcçdefgğhıijklmnoöpqrsştuüvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
