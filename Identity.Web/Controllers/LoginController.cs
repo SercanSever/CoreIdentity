@@ -103,7 +103,11 @@ namespace Identity.Web.Controllers
 
       #endregion
 
-
+      #region ForgotPassword
+      public IActionResult ForgotPassword(){
+         return View();
+      }     
+      #endregion
 
 
    }

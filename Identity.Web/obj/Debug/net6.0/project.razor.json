@@ -16308,6 +16308,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Login\\ForgotPassword.cshtml",
+      "TargetPath": "Views\\Login\\ForgotPassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Login\\SignIn.cshtml",
       "TargetPath": "Views\\Login\\SignIn.cshtml",
       "FileKind": "mvc"
