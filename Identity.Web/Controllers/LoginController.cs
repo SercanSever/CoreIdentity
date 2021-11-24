@@ -20,8 +20,12 @@ namespace Identity.Web.Controllers
          return View();
       }
       [HttpPost]
-      public IActionResult SignIn(UserViewModel userViewModel)
+      public async Task<IActionResult> SignIn(UserViewModel userViewModel)
       {
+          if (ModelState.IsValid)
+          {
+              
+          }
          return View();
       }
       #endregion
