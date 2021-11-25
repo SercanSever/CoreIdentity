@@ -121,19 +121,24 @@ namespace Identity.Web.Controllers
                var passwordRestToken = await _userManager.GeneratePasswordResetTokenAsync(user);
                var passwordResetLink = Url.Action("ResetPasswordConfirm", "Login", new
                {
-
                   userId = user.Id,
                   token = passwordRestToken
                }, HttpContext.Request.Scheme);
 
                PasswordReset.PasswordResetSendEmail(passwordResetLink, user.Email);
-            
-               ViewBag.status = "Successful" ;
-            }else{
-               ModelState.AddModelError("","There is no such email address");
+
+               ViewBag.status = "Successful";
+            }
+            else
+            {
+               ModelState.AddModelError("", "There is no such email address");
             }
          }
          return View(forgotPasswordViewModel);
+      }
+
+      public async Task<IActionResult> ResetPasswordConfirm(){
+         return View();
       }
       #endregion
    }
