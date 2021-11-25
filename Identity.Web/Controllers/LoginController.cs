@@ -1,3 +1,4 @@
+using System.Threading;
 using System;
 using System.Threading.Tasks;
 using Identity.Entity;
@@ -15,7 +16,7 @@ namespace Identity.Web.Controllers
       private readonly UserManager<User> _userManager;
       private readonly SignInManager<User> _signInManager;
       private readonly ICommonService _commonService;
-      public LoginController(UserManager<User> userManager, SignInManager<User> signInManager,ICommonService commonService)
+      public LoginController(UserManager<User> userManager, SignInManager<User> signInManager, ICommonService commonService)
       {
          _userManager = userManager;
          _signInManager = signInManager;
@@ -130,7 +131,7 @@ namespace Identity.Web.Controllers
                }, HttpContext.Request.Scheme);
 
                PasswordReset.PasswordResetSendEmail(passwordResetLink, user.Email);
-               ViewBag.alert = _commonService.ShowAlert(Alerts.Success,"Please check your email.");
+               ViewBag.alert = _commonService.ShowAlert(Alerts.Success, "Please check your email.");
             }
             else
             {
@@ -140,14 +141,39 @@ namespace Identity.Web.Controllers
          return View(forgotPasswordViewModel);
       }
 
-      public IActionResult ResetPasswordConfirm(){
+      public IActionResult ResetPasswordConfirm(string userId, string token)
+      {
+         TempData["userId"] = userId;
+         TempData["token"] = token;
          return View();
       }
-      
-      [HttpPost]
-      public async Task<IActionResult> ResetPasswordConfirm(int userId,string token){
 
-         return View();
+      [HttpPost]
+      public async Task<IActionResult> ResetPasswordConfirm(NewPasswordViewModel newPasswordViewModel)
+      {
+         var userId = TempData["userId"].ToString();
+         var token = TempData["token"].ToString();
+
+         User user = await _userManager.FindByIdAsync(userId);
+         if (user!=null)
+         {
+             var result = await _userManager.ResetPasswordAsync(user,token,newPasswordViewModel.Password);
+             if (result.Succeeded)
+             {
+                 await _userManager.UpdateSecurityStampAsync(user);
+                 ViewBag.PasswordResetSucces = _commonService.ShowAlert(Alerts.Success,"Your password is updated successfuly");
+                 Thread.Sleep(2000);
+                 return RedirectToAction("SignIn");
+             }else{
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("",error.Description);
+                }
+             }
+         }else{
+            ModelState.AddModelError("","Something went wrong. User not found");
+         }
+         return View(newPasswordViewModel);
       }
       #endregion
    }
