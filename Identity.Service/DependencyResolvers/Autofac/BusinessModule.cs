@@ -10,8 +10,7 @@ namespace Identity.Service.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            // builder.RegisterType<RoleManager>().As<IRoleService>();
-            // builder.RegisterType<RoleDal>().As<IRoleDal>();
+            builder.RegisterType<CommonService>().As<ICommonService>();
         }
     }
 }

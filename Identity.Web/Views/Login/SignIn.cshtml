@@ -2,11 +2,10 @@
 @{
    Layout = "_Layout";
 }
-@await Html.PartialAsync("_ValidationScriptsPartial");
+
 
 <link rel="stylesheet" href="~/Views/Login/SignIn.css" />
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" href="~/css/site.css" />
+
 <section class="vh-100">
    <div class="container-fluid h-custom">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -84,7 +83,7 @@
          </div>
       </div>
    </div>
-   <script src="~/lib/jquery/dist/jquery.min.js"></script>
-   <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-   <script src="~/js/site.js" asp-append-version="true"></script>
+ @section Scripts {  
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}  
+ }  
 </section>

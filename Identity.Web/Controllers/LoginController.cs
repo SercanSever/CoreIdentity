@@ -1,6 +1,8 @@
 using System;
 using System.Threading.Tasks;
 using Identity.Entity;
+using Identity.Service.Abstract;
+using Identity.Service.Enums;
 using Identity.Service.Helpers.EmailHelper;
 using Identity.Web.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
@@ -12,10 +14,12 @@ namespace Identity.Web.Controllers
    {
       private readonly UserManager<User> _userManager;
       private readonly SignInManager<User> _signInManager;
-      public LoginController(UserManager<User> userManager, SignInManager<User> signInManager)
+      private readonly ICommonService _commonService;
+      public LoginController(UserManager<User> userManager, SignInManager<User> signInManager,ICommonService commonService)
       {
          _userManager = userManager;
          _signInManager = signInManager;
+         _commonService = commonService;
       }
 
       #region Login
@@ -126,8 +130,7 @@ namespace Identity.Web.Controllers
                }, HttpContext.Request.Scheme);
 
                PasswordReset.PasswordResetSendEmail(passwordResetLink, user.Email);
-
-               ViewBag.status = "Successful";
+               ViewBag.alert = _commonService.ShowAlert(Alerts.Success,"Please check your email.");
             }
             else
             {
@@ -137,7 +140,13 @@ namespace Identity.Web.Controllers
          return View(forgotPasswordViewModel);
       }
 
-      public async Task<IActionResult> ResetPasswordConfirm(){
+      public IActionResult ResetPasswordConfirm(){
+         return View();
+      }
+      
+      [HttpPost]
+      public async Task<IActionResult> ResetPasswordConfirm(int userId,string token){
+
          return View();
       }
       #endregion
