@@ -57,8 +57,10 @@ namespace Identity.Web.Controllers
                if (result.Succeeded)
                {
                   await _userManager.UpdateSecurityStampAsync(user);
+                  await _signInManager.SignOutAsync();
+                  await _signInManager.PasswordSignInAsync(user, passwordChangeViewModel.NewPassword, true, false);
+                  ViewBag.alert="true";
                   ViewBag.ChangeSuccess = _commonService.ShowAlert(Alerts.Success, "Password changed successfully");
-                  return RedirectToAction("Index");
                }
                else
                {
