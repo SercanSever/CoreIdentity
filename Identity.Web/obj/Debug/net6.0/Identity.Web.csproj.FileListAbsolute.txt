@@ -68,3 +68,5 @@ C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web\bin\Debug\net6.0\Autofac
 C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web\bin\Debug\net6.0\Autofac.Extensions.DependencyInjection.dll
 C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web\bin\Debug\net6.0\Identity.Service.dll
 C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web\bin\Debug\net6.0\Identity.Service.pdb
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web\bin\Debug\net6.0\Mapster.dll
+C:\Users\Sercan Sever\Desktop\CoreIdentity\Identity.Web\bin\Debug\net6.0\Mapster.Core.dll

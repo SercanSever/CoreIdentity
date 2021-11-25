@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fDtF57oKuG199nyV7oUBjpdasVxV/4LhlNQ86ToZOE4=",
+  "Hash": "YZsfi7vVAvB80iysXAFv9N3cWKj5fD6GrzPPB4mXS6Y=",
   "Source": "Identity.Web",
   "BasePath": "_content/Identity.Web",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\wwwroot\\img\\User.png",
+      "SourceId": "Identity.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\wwwroot\\",
+      "BasePath": "_content/Identity.Web",
+      "RelativePath": "img/User.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\User.png"
     },
     {
       "Identity": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\wwwroot\\js\\site.js",

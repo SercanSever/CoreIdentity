@@ -1,1 +1,32 @@
-<h1>Burası HOME INDEX</h1>
+@model UserViewModel
+@{
+   Layout = "_Layout";
+}
+
+<h3 class="d-flex justify-content-center">Kullanıcı Bilgileri</h3>
+<div class="row">
+   <div class="col-md-2">
+      <img src="~/img/User.png" class="float-right mr-md-5 mt-md-3" />
+   </div>
+   <div class="col-md-6">
+      <table class="table table-bordered table-striped table-hover table-sm mt-md-2">
+         <tr>
+            <th>Username</th>
+            <td>@Model.UserName</td>
+         </tr>
+         <tr>
+            <th>Email</th>
+            <td>@Model.Email </td>
+         </tr>
+         <tr>
+            <th>Tel</th>
+            <td>@Model.PhoneNumber</td>
+         </tr>
+      </table>
+   </div>
+   <div class="col-md-4 mt-md-1">
+      <div class="m-md-1"> <a class="btn btn-sm btn-outline-primary btn-block" asp-action="ChangePassword" asp-controller="Home">Change Password</a></div>
+      <div class="m-md-1"> <a class="btn btn-sm btn-outline-primary btn-block" asp-action="UpdateUser" asp-controller="Home">Update Info</a></div>
+      <div class="m-md-1"> <a class="btn btn-sm btn-outline-primary btn-block" asp-action="Logout" asp-controller="Home">Logout</a></div>
+   </div>
+</div>
