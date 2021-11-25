@@ -113,9 +113,9 @@ namespace Identity.Web.Controllers
          }
          return View(updateUserViewModel);
       }
-      public async Task<IActionResult> Logout(){
-         await _signInManager.SignOutAsync();
-         return RedirectToAction("Index","Home");
+      public void Logout()
+      {
+         _signInManager.SignOutAsync();
       }
    }
 }

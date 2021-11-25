@@ -60,6 +60,7 @@ namespace Identity.Web
          services.ConfigureApplicationCookie(opt =>
          {
             opt.LoginPath = new PathString("/Login/SignIn");
+            opt.LogoutPath = new PathString("/Home/Logout");
             opt.AccessDeniedPath = new PathString("/Login/AccessDenied");
             opt.Cookie = cookieBuilder;
             opt.ExpireTimeSpan = TimeSpan.FromDays(60);
