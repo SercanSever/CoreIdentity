@@ -59,7 +59,7 @@ namespace Identity.Web.Controllers
                   await _userManager.UpdateSecurityStampAsync(user);
                   await _signInManager.SignOutAsync();
                   await _signInManager.PasswordSignInAsync(user, passwordChangeViewModel.NewPassword, true, false);
-                  ViewBag.alert="true";
+                  ViewBag.alert = "true";
                   ViewBag.ChangeSuccess = _commonService.ShowAlert(Alerts.Success, "Password changed successfully");
                }
                else
@@ -78,6 +78,45 @@ namespace Identity.Web.Controllers
          return View(passwordChangeViewModel);
       }
 
+      public async Task<IActionResult> UpdateUser()
+      {
+         var user = await _userManager.FindByNameAsync(User.Identity.Name);
+         var updateUserViewModel = user.Adapt<UpdateUserViewModel>();
+         return View(updateUserViewModel);
+      }
+      [HttpPost]
+      public async Task<IActionResult> UpdateUser(UpdateUserViewModel updateUserViewModel)
+      {
+         if (ModelState.IsValid)
+         {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            user.UserName = updateUserViewModel.UserName;
+            user.Email = updateUserViewModel.Email;
+            user.PhoneNumber = updateUserViewModel.PhoneNumber;
+
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
+            {
+               await _userManager.UpdateSecurityStampAsync(user);
+               await _signInManager.SignOutAsync();
+               await _signInManager.SignInAsync(user, true);
+               ViewBag.alert = "true";
+               ViewBag.updateSuccess = _commonService.ShowAlert(Alerts.Success, "User infos changed successfully");
+            }
+            else
+            {
+               foreach (var error in result.Errors)
+               {
+                  ModelState.AddModelError("", error.Description);
+               }
+            }
+         }
+         return View(updateUserViewModel);
+      }
+      public async Task<IActionResult> Logout(){
+         await _signInManager.SignOutAsync();
+         return RedirectToAction("Index","Home");
+      }
    }
 }
 

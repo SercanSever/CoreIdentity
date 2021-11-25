@@ -26,6 +26,10 @@ namespace Identity.Web.Controllers
       #region Login
       public IActionResult SignIn(string returnUrl)
       {
+         if (User.Identity.IsAuthenticated)
+         {
+             return RedirectToAction("Index","Home");
+         }
          TempData["ReturnUrl"] = returnUrl;
          return View();
       }
