@@ -99,9 +99,8 @@ namespace Identity.Web.Controllers
 
             if (userImage != null && userImage.Length > 0)
             {
-               
+               user.Image = await _imageService.Add(userImage);
             }
-
             user.UserName = updateUserViewModel.UserName;
             user.Email = updateUserViewModel.Email;
             user.PhoneNumber = updateUserViewModel.PhoneNumber;
