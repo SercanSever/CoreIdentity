@@ -5,5 +5,7 @@ namespace Identity.Entity
     {
         public string? City { get; set; }
         public string? Image { get; set; }
+        public DateTime? BirthDay { get; set; }
+        public int Gender { get; set; }
     }
 }

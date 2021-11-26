@@ -15,6 +15,8 @@ using Mapster;
 using Identity.Web.Models.ViewModels;
 using Identity.Service.Abstract;
 using Identity.Service.Enums;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http;
 
 namespace Identity.Web.Controllers
 {
@@ -24,12 +26,14 @@ namespace Identity.Web.Controllers
       private readonly UserManager<User> _userManager;
       private readonly SignInManager<User> _signInManager;
       private readonly ICommonService _commonService;
+      private readonly IImageService _imageService;
 
-      public HomeController(UserManager<User> userManager, SignInManager<User> signInManager, ICommonService commonService)
+      public HomeController(UserManager<User> userManager, SignInManager<User> signInManager, ICommonService commonService,IImageService imageService)
       {
          _userManager = userManager;
          _signInManager = signInManager;
          _commonService = commonService;
+         _imageService = imageService;
       }
 
       public async Task<IActionResult> Index()
@@ -80,16 +84,24 @@ namespace Identity.Web.Controllers
 
       public async Task<IActionResult> UpdateUser()
       {
+         ViewBag.gender = new SelectList(Enum.GetNames(typeof(Gender)));
+
          var user = await _userManager.FindByNameAsync(User.Identity.Name);
          var updateUserViewModel = user.Adapt<UpdateUserViewModel>();
          return View(updateUserViewModel);
       }
       [HttpPost]
-      public async Task<IActionResult> UpdateUser(UpdateUserViewModel updateUserViewModel)
+      public async Task<IActionResult> UpdateUser(UpdateUserViewModel updateUserViewModel, IFormFile userImage)
       {
          if (ModelState.IsValid)
          {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            if (userImage != null && userImage.Length > 0)
+            {
+               
+            }
+
             user.UserName = updateUserViewModel.UserName;
             user.Email = updateUserViewModel.Email;
             user.PhoneNumber = updateUserViewModel.PhoneNumber;

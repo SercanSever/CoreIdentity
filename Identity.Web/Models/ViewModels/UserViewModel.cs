@@ -1,5 +1,7 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using Identity.Entity;
+using Identity.Service.Enums;
 
 namespace Identity.Web.Models.ViewModels
 {
@@ -14,5 +16,10 @@ namespace Identity.Web.Models.ViewModels
         [Required(ErrorMessage = "Password is required." )]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime BirthDay { get; set; }
+        public Gender Gender { get; set; }
+        public string Image { get; set; }
+        public string City { get; set; }
     }
 }

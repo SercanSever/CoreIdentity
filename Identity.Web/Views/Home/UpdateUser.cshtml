@@ -26,9 +26,28 @@ else
             <span id="email" asp-validation-for="Email" class="text-danger"></span>
          </div>
          <div class="form-group">
-            <input asp-for="PhoneNumber" name="PhoneNumber" class="form-control form-control-sm"
-            type="text" placeholder="Enter new phone number">
+            <input asp-for="PhoneNumber" name="PhoneNumber" class="form-control form-control-sm" type="text"
+            placeholder="Enter new phone number">
             <span id="phoneNumber" asp-validation-for="PhoneNumber" class="text-danger"></span>
+         </div>
+         <div class="form-group">
+            <input asp-for="City" name="City" class="form-control form-control-sm" type="text"
+            placeholder="Enter new city">
+            <span id="city" asp-validation-for="City" class="text-danger"></span>
+         </div>
+         <div class="form-group">
+            <input asp-for="BirthDay" name="BirthDay" class="form-control form-control-sm" type="date" placeholder="">
+            <span id="birthDay" asp-validation-for="BirthDay" class="text-danger"></span>
+         </div>
+         <div class="form-group">
+            <select class="form-control form-control-sm" name="Gender" asp-for="Gender" asp-items="@ViewBag.gender" id="genderSelect">
+
+            </select>
+            <span id="phoneNumber" asp-validation-for="PhoneNumber" class="text-danger"></span>
+         </div>
+         <div class="form-group">
+            <input name="userImage" class="form-control form-control-sm" type="file" placeholder="">
+            <span id="image" asp-validation-for="Image" class="text-danger"></span>
          </div>
          <button class="btn btn-sm btn-outline-primary">Change Info</button>
       </form>
@@ -37,9 +56,6 @@ else
 
 
 
-
-
-
 @section Scripts{
-   @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

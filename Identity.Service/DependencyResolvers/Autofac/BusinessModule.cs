@@ -11,6 +11,7 @@ namespace Identity.Service.DependencyResolvers.Autofac
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<CommonService>().As<ICommonService>();
+              builder.RegisterType<ImageManager>().As<IImageService>();
         }
     }
 }
