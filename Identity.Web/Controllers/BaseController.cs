@@ -13,7 +13,6 @@ namespace Identity.Web.Controllers
       protected readonly ICommonService _commonService;
       protected readonly IImageService _imageService;
      
-
       public BaseController(UserManager<User> userManager, SignInManager<User> signInManager, ICommonService commonService, IImageService imageService)
       {
          _userManager = userManager;
