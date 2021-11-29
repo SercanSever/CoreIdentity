@@ -6,7 +6,7 @@
 <h3 class="d-flex justify-content-center">Kullanıcı Bilgileri</h3>
 <div class="row">
    <div class="col-md-2">
-      <img src="~/img/User.png" class="float-right mr-md-5 mt-md-3" />
+      <img src="~/Upload/@Model.Image" class="float-right mr-md-5 mt-md-3" />
    </div>
    <div class="col-md-6">
       <table class="table table-bordered table-striped table-hover table-sm mt-md-2">
@@ -22,6 +22,19 @@
             <th>Tel</th>
             <td>@Model.PhoneNumber</td>
          </tr>
+          <tr>
+            <th>Birthday</th>
+            <td>@Model.BirthDay.Value.ToShortDateString()</td>
+         </tr>
+          <tr>
+            <th>Tel</th>
+            <td>@Model.Gender</td>
+         </tr>
+           <tr>
+            <th>Tel</th>
+            <td>@Model.City</td>
+         </tr>
+        
       </table>
    </div>
    <div class="col-md-4 mt-md-1">

@@ -99,11 +99,15 @@ namespace Identity.Web.Controllers
 
             if (userImage != null && userImage.Length > 0)
             {
-               user.Image = await _imageService.Add(userImage);
+               var fileName = await _imageService.Add(userImage);
+               user.Image = fileName;
             }
             user.UserName = updateUserViewModel.UserName;
             user.Email = updateUserViewModel.Email;
             user.PhoneNumber = updateUserViewModel.PhoneNumber;
+            user.City = updateUserViewModel.City;
+            user.Gender = (int)updateUserViewModel.Gender;
+            user.BirthDay = updateUserViewModel.BirthDay;
 
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)

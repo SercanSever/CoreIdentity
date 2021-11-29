@@ -9,11 +9,13 @@ namespace Identity.Service.Concrete
       public async Task<string> Add(IFormFile formFile)
       {
          var fileName = Guid.NewGuid().ToString() + Path.GetExtension(formFile.FileName);
-         var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Image", fileName);
-         using(var stream = new FileStream(path,FileMode.Create)){
-             await formFile.CopyToAsync(stream);
+         var path = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot/Upload/");
+         var fullPath = Path.Combine(path, fileName);
+         using (var stream = new FileStream(fullPath, FileMode.Create))
+         {
+            await formFile.CopyToAsync(stream);
          }
-         return path;
+         return fileName;
       }
    }
 }

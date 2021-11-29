@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YZsfi7vVAvB80iysXAFv9N3cWKj5fD6GrzPPB4mXS6Y=",
+  "Hash": "xNaxPKynNyEmZSeQ9cflwz/21y0LzPoArln2o6hMeyI=",
   "Source": "Identity.Web",
   "BasePath": "_content/Identity.Web",
   "Mode": "Default",
@@ -644,6 +644,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\wwwroot\\Upload\\20936390-e297-47dd-ba99-82c0391465d8.png",
+      "SourceId": "Identity.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\wwwroot\\",
+      "BasePath": "_content/Identity.Web",
+      "RelativePath": "Upload/20936390-e297-47dd-ba99-82c0391465d8.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Upload\\20936390-e297-47dd-ba99-82c0391465d8.png"
     }
   ]
 }
