@@ -5,25 +5,31 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 namespace Identity.Service.Helpers.CustomTagHelpers
 {
    [HtmlTargetElement("td", Attributes = "user-roles")]
-   public class UserRoleName : TagHelper
+   public class UserRolesName : TagHelper
    {
-      public UserManager<User> UserManager {get;set;}
-      public UserRoleName(UserManager<User> userManager)
+      public UserManager<User> UserManager { get; set; }
+
+      public UserRolesName(UserManager<User> userManager)
       {
-         UserManager = userManager;
+         this.UserManager = userManager;
       }
+
       [HtmlAttributeName("user-roles")]
-      public string UserId { get; set; }
+      public string Id { get; set; }
 
       public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
       {
-         var user = await UserManager.FindByIdAsync(UserId);
-         IList<string> roleList = await UserManager.GetRolesAsync(user);
+         User user = await UserManager.FindByIdAsync(Id);
+
+         IList<string> roles = await UserManager.GetRolesAsync(user);
+
          string html = string.Empty;
-         roleList.ToList().ForEach(x => 
+
+         roles.ToList().ForEach(x =>
          {
-            html += $"<span class='badge badge-info'>{x}</span>";
+            html += $"<span class='badge badge-info'>  {x}  </span>";
          });
+
          output.Content.SetHtmlContent(html);
       }
    }

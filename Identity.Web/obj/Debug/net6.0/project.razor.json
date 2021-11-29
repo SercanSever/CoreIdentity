@@ -14245,9 +14245,9 @@
         }
       },
       {
-        "HashCode": -503473310,
+        "HashCode": 1402919923,
         "Kind": "ITagHelper",
-        "Name": "Identity.Service.Helpers.CustomTagHelpers.UserRoleName",
+        "Name": "Identity.Service.Helpers.CustomTagHelpers.UserRolesName",
         "AssemblyName": "Identity.Service",
         "CaseSensitive": false,
         "TagMatchingRules": [
@@ -14280,7 +14280,7 @@
         ],
         "Metadata": {
           "Runtime.Name": "ITagHelper",
-          "Common.TypeName": "Identity.Service.Helpers.CustomTagHelpers.UserRoleName"
+          "Common.TypeName": "Identity.Service.Helpers.CustomTagHelpers.UserRolesName"
         }
       },
       {

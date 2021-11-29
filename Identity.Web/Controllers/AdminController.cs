@@ -6,15 +6,15 @@ using Identity.Entity;
 using Identity.Service.Abstract;
 using Identity.Web.Models.ViewModels;
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Identity.Web.Controllers
 {
+   [Authorize(Roles="Admin")]
    public class AdminController : BaseController
    {
-
-
       public AdminController(UserManager<User> userManager, RoleManager<Role> roleManager) : base(userManager, null, null, null, roleManager)
       {
       }
