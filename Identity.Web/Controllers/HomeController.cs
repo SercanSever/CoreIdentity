@@ -116,6 +116,10 @@ namespace Identity.Web.Controllers
          }
          return View(updateUserViewModel);
       }
+      public IActionResult AccessDenied()
+      {
+         return View();
+      }
       public void Logout()
       {
          _signInManager.SignOutAsync();
