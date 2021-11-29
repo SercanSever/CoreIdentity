@@ -6,5 +6,6 @@ namespace Identity.Web.Models.ViewModels
     {
         [Required(ErrorMessage="Role name is required")]
         public string Name { get; set; }
+        public string Id { get; set; } //for update
     }
 }
