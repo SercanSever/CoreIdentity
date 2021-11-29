@@ -1,0 +1,20 @@
+@model List<AssignRoleViewModel>
+@{
+   Layout = "_AdminLayout";
+}
+
+<h2 class="d-flex justify-content-center">@ViewBag.userName adlı kullanıcıya rol ata.</h2>
+
+<form asp-action="AssignRole" method="post" class="d-flex justify-content-center form-group m-md-3 shadow">
+   @for (int i = 0; i < Model.Count(); i++)
+   {
+      <div class="form-check-inline p-md-5">
+         <input asp-for="@Model[i].Exist" type="checkbox" class="form-check-input">
+         <label asp-for="@Model[i].RoleId" class="form-check-label">@Model[i].RoleName</label>
+
+         <input asp-for="@Model[i].RoleName" type="hidden">
+         <input asp-for="@Model[i].RoleId" type="hidden">
+      </div>
+   }
+      <button class="btn btn-sm btn-outline-info m-md-5" type="submit">Assign Role</button>
+</form>

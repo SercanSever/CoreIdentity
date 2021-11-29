@@ -13,6 +13,8 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Roles</th>
+                    <th></th>
                 </tr>
 
             </thead>
@@ -23,9 +25,11 @@
                     @foreach (var user in Model)
                     {
                         <tr>
-                            <th>@user.Id</th>
-                            <th>@user.UserName</th>
-                            <th>@user.Email</th>
+                            <td>@user.Id</td>
+                            <td>@user.UserName</td>
+                            <td>@user.Email</td>
+                            <td user-roles="@user.Id"></td>
+                            <td><a class="btn btn-sm btn-outline-success" asp-action="AssignRole" asp-route-id="@user.Id">Assign Role</a></td>
                         </tr>
                     }
                 }

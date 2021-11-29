@@ -14245,6 +14245,45 @@
         }
       },
       {
+        "HashCode": -503473310,
+        "Kind": "ITagHelper",
+        "Name": "Identity.Service.Helpers.CustomTagHelpers.UserRoleName",
+        "AssemblyName": "Identity.Service",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "td",
+            "Attributes": [
+              {
+                "Name": "user-roles"
+              }
+            ]
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "ITagHelper",
+            "Name": "user-manager",
+            "TypeName": "Microsoft.AspNetCore.Identity.UserManager<Identity.Entity.User>",
+            "Metadata": {
+              "Common.PropertyName": "UserManager"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "user-roles",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "UserId"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "Identity.Service.Helpers.CustomTagHelpers.UserRoleName"
+        }
+      },
+      {
         "HashCode": 141407075,
         "Kind": "Components.Bind",
         "Name": "Bind",
@@ -16338,6 +16377,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Admin\\RoleUpdate.cshtml",
+      "TargetPath": "Views\\Admin\\RoleUpdate.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Login\\ResetPasswordConfirm.cshtml",
       "TargetPath": "Views\\Login\\ResetPasswordConfirm.cshtml",
       "FileKind": "mvc"
@@ -16350,6 +16394,11 @@
     {
       "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Login\\SignUp.cshtml",
       "TargetPath": "Views\\Login\\SignUp.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Admin\\AssignRole.cshtml",
+      "TargetPath": "Views\\Admin\\AssignRole.cshtml",
       "FileKind": "mvc"
     },
     {
