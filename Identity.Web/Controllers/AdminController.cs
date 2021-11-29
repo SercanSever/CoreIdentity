@@ -7,13 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Identity.Web.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController : BaseController
     {
-        private readonly UserManager<User> _userManager;
 
-        public AdminController(UserManager<User> userManager)
+
+        public AdminController(UserManager<User> userManager,RoleManager<Role> roleManager) : base(userManager,null,null,null,roleManager)
         {
-            _userManager = userManager;
         }
         public IActionResult Home()
         {

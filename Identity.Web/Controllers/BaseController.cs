@@ -10,15 +10,17 @@ namespace Identity.Web.Controllers
    {
       protected readonly UserManager<User> _userManager;
       protected readonly SignInManager<User> _signInManager;
+      protected readonly RoleManager<Role>  _roleManager;
       protected readonly ICommonService _commonService;
       protected readonly IImageService _imageService;
      
-      public BaseController(UserManager<User> userManager, SignInManager<User> signInManager, ICommonService commonService, IImageService imageService)
+      public BaseController(UserManager<User> userManager, SignInManager<User> signInManager, ICommonService commonService, IImageService imageService,RoleManager<Role> roleManager = null)
       {
          _userManager = userManager;
          _signInManager = signInManager;
          _commonService = commonService;
          _imageService = imageService;
+         _roleManager = roleManager;
       }
       protected async Task<User> CurrentUser() => await _userManager.FindByNameAsync(User.Identity.Name);
       protected void AddModelError(IdentityResult result)
