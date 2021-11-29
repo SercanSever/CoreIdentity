@@ -1,0 +1,21 @@
+@model RoleViewModel
+@{
+   Layout = "AdminLayout";
+}
+
+<h3 class="d-flex justify-content-center m-md-3">Create Role</h3>
+<div class="row">
+   <form asp-action="RoleCreate" method="post" class="col-md-4 offset-4">
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <div class="form-group">
+         <input asp-for="Name" name="Name" class="form-control form-control-sm" type="text"
+            placeholder="Enter role name">
+         <span asp-validation-for="Name" id="name" class="text-danger"></span>
+      </div>
+      <button type="submit" class="btn btn-sm btn-outline-primary">Create Role</button>
+   </form>
+</div>
+
+@section Scripts{
+   @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
