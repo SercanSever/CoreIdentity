@@ -61,7 +61,7 @@ namespace Identity.Web
          {
             opt.LoginPath = new PathString("/Login/SignIn");
             opt.LogoutPath = new PathString("/Home/Logout");
-            opt.AccessDeniedPath = new PathString("/Login/AccessDenied");
+            opt.AccessDeniedPath = new PathString("/Home/AccessDenied");
             opt.Cookie = cookieBuilder;
             opt.ExpireTimeSpan = TimeSpan.FromDays(60);
             opt.SlidingExpiration = true;
