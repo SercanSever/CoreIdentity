@@ -21,24 +21,18 @@ using Microsoft.AspNetCore.Http;
 namespace Identity.Web.Controllers
 {
    [Authorize]
-   public class HomeController : Controller
+   public class HomeController : BaseController
    {
-      private readonly UserManager<User> _userManager;
-      private readonly SignInManager<User> _signInManager;
-      private readonly ICommonService _commonService;
-      private readonly IImageService _imageService;
 
-      public HomeController(UserManager<User> userManager, SignInManager<User> signInManager, ICommonService commonService,IImageService imageService)
+
+      public HomeController(UserManager<User> userManager, SignInManager<User> signInManager, ICommonService commonService, IImageService imageService) : base(userManager, signInManager, commonService, imageService)
       {
-         _userManager = userManager;
-         _signInManager = signInManager;
-         _commonService = commonService;
-         _imageService = imageService;
+
       }
 
       public async Task<IActionResult> Index()
       {
-         var user = await _userManager.FindByNameAsync(User.Identity.Name);
+         var user = await CurrentUser();
          var userViewModel = user.Adapt<UserViewModel>();
 
          return View(userViewModel);
@@ -53,7 +47,7 @@ namespace Identity.Web.Controllers
 
          if (ModelState.IsValid)
          {
-            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var user = await CurrentUser();
             bool oldPasswordConfirm = await _userManager.CheckPasswordAsync(user, passwordChangeViewModel.OldPassword);
             if (oldPasswordConfirm)
             {
@@ -68,10 +62,7 @@ namespace Identity.Web.Controllers
                }
                else
                {
-                  foreach (var error in result.Errors)
-                  {
-                     ModelState.AddModelError("", error.Description);
-                  }
+                  AddModelError(result);
                }
             }
             else
@@ -86,7 +77,7 @@ namespace Identity.Web.Controllers
       {
          ViewBag.gender = new SelectList(Enum.GetNames(typeof(Gender)));
 
-         var user = await _userManager.FindByNameAsync(User.Identity.Name);
+         var user = await CurrentUser();
          var updateUserViewModel = user.Adapt<UpdateUserViewModel>();
          return View(updateUserViewModel);
       }
@@ -95,7 +86,7 @@ namespace Identity.Web.Controllers
       {
          if (ModelState.IsValid)
          {
-            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var user = await CurrentUser();
 
             if (userImage != null && userImage.Length > 0)
             {
@@ -120,10 +111,7 @@ namespace Identity.Web.Controllers
             }
             else
             {
-               foreach (var error in result.Errors)
-               {
-                  ModelState.AddModelError("", error.Description);
-               }
+               AddModelError(result);
             }
          }
          return View(updateUserViewModel);
