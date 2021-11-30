@@ -24,13 +24,10 @@ namespace Identity.Web.Controllers
    [Authorize]
    public class HomeController : BaseController
    {
-
-
       public HomeController(UserManager<User> userManager, SignInManager<User> signInManager, ICommonService commonService, IImageService imageService) : base(userManager, signInManager, commonService, imageService)
       {
 
       }
-
       public async Task<IActionResult> Index()
       {
          var user = CurrentUser;

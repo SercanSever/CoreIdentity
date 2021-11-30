@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using System.Threading;
 using System;
 using System.Threading.Tasks;
@@ -8,6 +9,8 @@ using Identity.Service.Helpers.EmailHelper;
 using Identity.Web.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Identity.Web.Controllers
 {
@@ -107,7 +110,7 @@ namespace Identity.Web.Controllers
             if (result.Succeeded)
             {
                var confirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-               var link = Url.Action("ConfirmEmail","Login", new
+               var link = Url.Action("ConfirmEmail", "Login", new
                {
                   userId = user.Id,
                   token = confirmationToken
@@ -213,5 +216,84 @@ namespace Identity.Web.Controllers
          return View(newPasswordViewModel);
       }
       #endregion
+
+      public IActionResult LoginWithFacebook(string ReturnUrl)
+      {
+         string RedirectUrl = Url.Action("ExternalResponse", "Login", new { ReturnUrl = ReturnUrl });
+
+         var properties = _signInManager.ConfigureExternalAuthenticationProperties("Facebook", RedirectUrl);
+
+         return new ChallengeResult("Facebook", properties);
+      }
+      public async Task<IActionResult> ExternalResponse(string ReturnUrl = "/Home/Index")
+      {
+         ExternalLoginInfo info = await _signInManager.GetExternalLoginInfoAsync();
+         if (info == null)
+         {
+            return RedirectToAction("LogIn");
+         }
+         else
+         {
+            Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, true);
+
+            if (result.Succeeded)
+            {
+               return Redirect(ReturnUrl);
+            }
+            else
+            {
+               User user = new User();
+
+               user.Email = info.Principal.FindFirst(ClaimTypes.Email).Value;
+               string ExternalUserId = info.Principal.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+               if (info.Principal.HasClaim(x => x.Type == ClaimTypes.Name))
+               {
+                  string userName = info.Principal.FindFirst(ClaimTypes.Name).Value;
+
+                  userName = userName.Replace(' ', '-').ToLower() + ExternalUserId.Substring(0, 5).ToString();
+
+                  user.UserName = userName;
+               }
+               else
+               {
+                  user.UserName = info.Principal.FindFirst(ClaimTypes.Email).Value;
+               }
+
+               User userResult = await _userManager.FindByEmailAsync(user.Email);
+
+               if (userResult == null)
+               {
+                  IdentityResult createResult = await _userManager.CreateAsync(user);
+
+                  if (createResult.Succeeded)
+                  {
+                     IdentityResult loginResult = await _userManager.AddLoginAsync(user, info);
+
+                     if (loginResult.Succeeded)
+                     {
+                        //     await signInManager.SignInAsync(user, true);
+
+                        await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, true);
+
+                        return Redirect(ReturnUrl);
+                     }
+                  }
+                  else
+                  {
+                     IdentityResult loginResult = await _userManager.AddLoginAsync(userResult, info);
+
+                     await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, true);
+
+                     return Redirect(ReturnUrl);
+                  }
+               }
+            }
+
+            List<string> errors = ModelState.Values.SelectMany(x => x.Errors).Select(y => y.ErrorMessage).ToList();
+
+            return View("Error", errors);
+         }
+      }
    }
 }

@@ -51,9 +51,15 @@ namespace Identity.Web
             });
          });
 
+         services.AddAuthentication().AddFacebook(opt =>
+         {
+            opt.AppId = Configuration["Authentication:Facebook:AppId"];
+            opt.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+         });
+
          services.AddIdentity<User, Role>(opt =>
          {
-            opt.User.AllowedUserNameCharacters = "abcçdefgğhıijklmnoöpqrsştuüvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+            opt.User.AllowedUserNameCharacters = "abcçdefgğhıijklmnoöpqrsştuüvwxyzABCÇDEFGĞHIİJKLMNOÖPQRSŞTUÜVWXYZ0123456789-._@+#=<>&%^'!";
             opt.User.RequireUniqueEmail = true;
 
             opt.Password.RequiredLength = 4;
