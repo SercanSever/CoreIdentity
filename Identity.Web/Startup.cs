@@ -16,6 +16,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Identity.Service.Utilities;
 
 namespace Identity.Web
 {
@@ -34,7 +35,6 @@ namespace Identity.Web
          services.AddDbContext<IdentityContext>(opt =>
          opt.UseSqlServer(Configuration.GetConnectionString("IdentityConnectionStr"), b => b.MigrationsAssembly("Identity.Web")));
 
-
          services.AddAuthorization(opt =>
          {
             opt.AddPolicy("İstanbulPolicy", policy =>
@@ -44,6 +44,10 @@ namespace Identity.Web
             opt.AddPolicy("ViolencePolicy", policy =>
             {
                policy.RequireClaim("violence");
+            });
+            opt.AddPolicy("ExchangePolicy", policy =>
+            {
+               policy.AddRequirements(new ExpireDateExchangeRequirement());
             });
          });
 

@@ -22,7 +22,7 @@ namespace Identity.Web.Controllers
          _imageService = imageService;
          _roleManager = roleManager;
       }
-      protected async Task<User> CurrentUser() => await _userManager.FindByNameAsync(User.Identity.Name);
+      protected  User CurrentUser => _userManager.FindByNameAsync(User.Identity.Name).Result;
       protected void AddModelError(IdentityResult result)
       {
          foreach (var error in result.Errors)

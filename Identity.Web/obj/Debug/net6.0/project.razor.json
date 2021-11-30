@@ -16382,6 +16382,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Home\\Exchange.cshtml",
+      "TargetPath": "Views\\Home\\Exchange.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Home\\CityClaim.cshtml",
       "TargetPath": "Views\\Home\\CityClaim.cshtml",
       "FileKind": "mvc"

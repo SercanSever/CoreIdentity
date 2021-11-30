@@ -17,6 +17,7 @@ using Identity.Service.Abstract;
 using Identity.Service.Enums;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 
 namespace Identity.Web.Controllers
 {
@@ -32,7 +33,7 @@ namespace Identity.Web.Controllers
 
       public async Task<IActionResult> Index()
       {
-         var user = await CurrentUser();
+         var user = CurrentUser;
          var userViewModel = user.Adapt<UserViewModel>();
 
          return View(userViewModel);
@@ -47,7 +48,7 @@ namespace Identity.Web.Controllers
 
          if (ModelState.IsValid)
          {
-            var user = await CurrentUser();
+            var user = CurrentUser;
             bool oldPasswordConfirm = await _userManager.CheckPasswordAsync(user, passwordChangeViewModel.OldPassword);
             if (oldPasswordConfirm)
             {
@@ -77,7 +78,7 @@ namespace Identity.Web.Controllers
       {
          ViewBag.gender = new SelectList(Enum.GetNames(typeof(Gender)));
 
-         var user = await CurrentUser();
+         var user = CurrentUser;
          var updateUserViewModel = user.Adapt<UpdateUserViewModel>();
          return View(updateUserViewModel);
       }
@@ -86,7 +87,7 @@ namespace Identity.Web.Controllers
       {
          if (ModelState.IsValid)
          {
-            var user = await CurrentUser();
+            var user = CurrentUser;
 
             if (userImage != null && userImage.Length > 0)
             {
@@ -129,9 +130,39 @@ namespace Identity.Web.Controllers
          return View();
       }
 
-
-      public IActionResult AccessDenied()
+      public async Task<IActionResult> ExchangeRedirect()
       {
+         bool result = User.HasClaim(x => x.Type == "ExpireDateExchange");
+         if (!result)
+         {
+            Claim expireDateExchange = new Claim("ExpireDateExchange", DateTime.Now.AddDays(30).ToShortDateString(), ClaimValueTypes.String, "Internal");
+            await _userManager.AddClaimAsync(CurrentUser, expireDateExchange);
+            await _signInManager.SignOutAsync();
+            await _signInManager.SignInAsync(CurrentUser, true);
+         }
+         return RedirectToAction("Exchange");
+      }
+      [Authorize("ExchangePolicy")]
+      public IActionResult Exchange() //30 days trial page
+      {
+         return View();
+      }
+
+
+      public IActionResult AccessDenied(string returnUrl)
+      {
+         if (returnUrl.Contains("ViolenceClaim"))
+         {
+            ViewBag.message = "Access denied. You're not 18 yet.";
+         }
+         else if (returnUrl.Contains("CityClaim"))
+         {
+            ViewBag.message = "Access denied. You're not living in İstanbul.";
+         }
+         else
+         {
+            ViewBag.message = "Access denied.";
+         }
          return View();
       }
       public void Logout()
