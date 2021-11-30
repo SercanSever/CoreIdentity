@@ -25,7 +25,9 @@
                             <td>@user.Id</td>
                             <td>@user.UserName</td>
                             <td>@user.Email</td>
-                            <td user-roles="@user.Id"></td>
+                            <td>
+                                <user-roles-tag-helper for-userId="@user.Id"></user-roles-tag-helper>
+                            </td>
                             <td><a class="btn btn-sm btn-outline-success" asp-action="AssignRole" asp-route-id="@user.Id">Assign
                                     Role</a></td>
                         </tr>
