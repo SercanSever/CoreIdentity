@@ -3,6 +3,7 @@ using Identity.DataAccess.Abstract;
 using Identity.DataAccess.Concrete;
 using Identity.Service.Abstract;
 using Identity.Service.Concrete;
+using Microsoft.AspNetCore.Authentication;
 
 namespace Identity.Service.DependencyResolvers.Autofac
 {
@@ -12,6 +13,7 @@ namespace Identity.Service.DependencyResolvers.Autofac
       {
          builder.RegisterType<CommonService>().As<ICommonService>();
          builder.RegisterType<ImageManager>().As<IImageService>();
+         builder.RegisterType<ClaimProvider>().As<IClaimsTransformation>();
       }
    }
 }

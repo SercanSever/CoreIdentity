@@ -67,6 +67,7 @@ namespace Identity.Web
             opt.SlidingExpiration = true;
          });
 
+         
 
          services.AddControllersWithViews();
 
