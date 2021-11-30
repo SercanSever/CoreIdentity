@@ -15,11 +15,11 @@ namespace Identity.Service.Helpers.CustomTagHelpers
       }
 
       [HtmlAttributeName("user-roles")]
-      public string Id { get; set; }
+      public string UserId { get; set; }
 
       public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
       {
-         User user = await UserManager.FindByIdAsync(Id);
+         User user = await UserManager.FindByIdAsync(UserId);
 
          IList<string> roles = await UserManager.GetRolesAsync(user);
 

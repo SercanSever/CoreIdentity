@@ -14245,7 +14245,7 @@
         }
       },
       {
-        "HashCode": -929577398,
+        "HashCode": 1402919923,
         "Kind": "ITagHelper",
         "Name": "Identity.Service.Helpers.CustomTagHelpers.UserRolesName",
         "AssemblyName": "Identity.Service",
@@ -14274,7 +14274,7 @@
             "Name": "user-roles",
             "TypeName": "System.String",
             "Metadata": {
-              "Common.PropertyName": "Id"
+              "Common.PropertyName": "UserId"
             }
           }
         ],
