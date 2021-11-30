@@ -74,7 +74,7 @@ namespace Identity.Web.Controllers
          return View(passwordChangeViewModel);
       }
 
-      public async Task<IActionResult> UpdateUser()
+      public IActionResult UpdateUser()
       {
          ViewBag.gender = new SelectList(Enum.GetNames(typeof(Gender)));
 

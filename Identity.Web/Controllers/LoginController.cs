@@ -28,7 +28,7 @@ namespace Identity.Web.Controllers
       {
          if (User.Identity.IsAuthenticated)
          {
-             return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
          }
          TempData["ReturnUrl"] = returnUrl;
          return View();
@@ -45,6 +45,14 @@ namespace Identity.Web.Controllers
                {
                   ModelState.AddModelError("", "Your account has been locked for a few minutes. Please try again later");
                }
+
+               if (_userManager.IsEmailConfirmedAsync(user).Result == false)
+               {
+                  ModelState.AddModelError("", "Email address is not verified. Check your email.");
+                  return View(loginViewModel);
+               }
+
+
                await _signInManager.SignOutAsync();
                var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, loginViewModel.RememberMe, false);
                if (result.Succeeded)
@@ -98,6 +106,13 @@ namespace Identity.Web.Controllers
             var result = await _userManager.CreateAsync(user, userViewModel.Password);
             if (result.Succeeded)
             {
+               var confirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+               var link = Url.Action("ConfirmEmail","Login", new
+               {
+                  userId = user.Id,
+                  token = confirmationToken
+               }, protocol: HttpContext.Request.Scheme);
+               EmailConfirm.SendEmailForConfirmation(link, user.Email);
                return RedirectToAction("SignIn");
             }
             else
@@ -109,6 +124,20 @@ namespace Identity.Web.Controllers
             }
          }
          return View(userViewModel);
+      }
+      public async Task<IActionResult> ConfirmEmail(string userId, string token)
+      {
+         var user = await _userManager.FindByIdAsync(userId);
+         var result = await _userManager.ConfirmEmailAsync(user, token);
+         if (result.Succeeded)
+         {
+            ViewBag.confirm = _commonService.ShowAlert(Alerts.Success, "Email verified successfully");
+         }
+         else
+         {
+            ViewBag.confirm = _commonService.ShowAlert(Alerts.Success, "Email not verified");
+         }
+         return View();
       }
 
       #endregion
@@ -159,23 +188,27 @@ namespace Identity.Web.Controllers
          var token = TempData["token"].ToString();
 
          User user = await _userManager.FindByIdAsync(userId);
-         if (user!=null)
+         if (user != null)
          {
-             var result = await _userManager.ResetPasswordAsync(user,token,newPasswordViewModel.Password);
-             if (result.Succeeded)
-             {
-                 await _userManager.UpdateSecurityStampAsync(user);
-                 ViewBag.PasswordResetSucces = _commonService.ShowAlert(Alerts.Success,"Your password is updated successfuly");
-                 Thread.Sleep(2000);
-                 return RedirectToAction("SignIn");
-             }else{
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError("",error.Description);
-                }
-             }
-         }else{
-            ModelState.AddModelError("","Something went wrong. User not found");
+            var result = await _userManager.ResetPasswordAsync(user, token, newPasswordViewModel.Password);
+            if (result.Succeeded)
+            {
+               await _userManager.UpdateSecurityStampAsync(user);
+               ViewBag.PasswordResetSucces = _commonService.ShowAlert(Alerts.Success, "Your password is updated successfuly");
+               Thread.Sleep(2000);
+               return RedirectToAction("SignIn");
+            }
+            else
+            {
+               foreach (var error in result.Errors)
+               {
+                  ModelState.AddModelError("", error.Description);
+               }
+            }
+         }
+         else
+         {
+            ModelState.AddModelError("", "Something went wrong. User not found");
          }
          return View(newPasswordViewModel);
       }
