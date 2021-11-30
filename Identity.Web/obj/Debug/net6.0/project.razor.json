@@ -16372,8 +16372,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Home\\ViolenceClaim.cshtml",
+      "TargetPath": "Views\\Home\\ViolenceClaim.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Admin\\RoleUpdate.cshtml",
       "TargetPath": "Views\\Admin\\RoleUpdate.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Home\\CityClaim.cshtml",
+      "TargetPath": "Views\\Home\\CityClaim.cshtml",
       "FileKind": "mvc"
     },
     {

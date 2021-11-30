@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+using System.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +35,17 @@ namespace Identity.Web
          opt.UseSqlServer(Configuration.GetConnectionString("IdentityConnectionStr"), b => b.MigrationsAssembly("Identity.Web")));
 
 
+         services.AddAuthorization(opt =>
+         {
+            opt.AddPolicy("İstanbulPolicy", policy =>
+            {
+               policy.RequireClaim("city", "İstanbul");
+            });
+            opt.AddPolicy("ViolencePolicy", policy =>
+            {
+               policy.RequireClaim("violence");
+            });
+         });
 
          services.AddIdentity<User, Role>(opt =>
          {
@@ -67,7 +80,7 @@ namespace Identity.Web
             opt.SlidingExpiration = true;
          });
 
-         
+
 
          services.AddControllersWithViews();
 

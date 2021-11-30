@@ -116,6 +116,20 @@ namespace Identity.Web.Controllers
          }
          return View(updateUserViewModel);
       }
+
+      [Authorize("İstanbulPolicy")]
+      public IActionResult CityClaim()
+      {
+         return View();
+      }
+
+      [Authorize("ViolencePolicy")]
+      public IActionResult ViolenceClaim()
+      {
+         return View();
+      }
+
+
       public IActionResult AccessDenied()
       {
          return View();

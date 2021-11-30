@@ -23,6 +23,17 @@ namespace Identity.Service.Concrete
 
             if (user != null)
             {
+               if (user.BirthDay != null)
+               {
+                  var today = DateTime.Today;
+                  var age = today.Year - user.BirthDay?.Year;
+                  if (age > 18)
+                  {
+                     Claim violeceClaim = new Claim("violence", true.ToString(), ClaimValueTypes.String, "Internal");
+                     identity.AddClaim(violeceClaim);
+                  }
+               }
+
                if (user.City != null)
                {
                   if (!principal.HasClaim(c => c.Type == "City"))
