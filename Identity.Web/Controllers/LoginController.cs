@@ -102,6 +102,14 @@ namespace Identity.Web.Controllers
       {
          if (ModelState.IsValid)
          {
+
+            if (_userManager.Users.Any(u=>u.PhoneNumber == userViewModel.PhoneNumber))
+            {
+                ModelState.AddModelError("","This phone number already exists");
+                return View(userViewModel);
+            }
+
+
             User user = new User();
             user.UserName = userViewModel.UserName;
             user.Email = userViewModel.Email;
