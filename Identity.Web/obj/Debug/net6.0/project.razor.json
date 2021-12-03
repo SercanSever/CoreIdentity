@@ -14245,31 +14245,36 @@
         }
       },
       {
-        "HashCode": 995239540,
+        "HashCode": 1402919923,
         "Kind": "ITagHelper",
         "Name": "Identity.Service.Helpers.CustomTagHelpers.UserRolesName",
         "AssemblyName": "Identity.Service",
         "CaseSensitive": false,
         "TagMatchingRules": [
           {
-            "TagName": "user-roles-tag-helper"
+            "TagName": "td",
+            "Attributes": [
+              {
+                "Name": "user-roles"
+              }
+            ]
           }
         ],
         "BoundAttributes": [
-          {
-            "Kind": "ITagHelper",
-            "Name": "for-userId",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "UserId"
-            }
-          },
           {
             "Kind": "ITagHelper",
             "Name": "user-manager",
             "TypeName": "Microsoft.AspNetCore.Identity.UserManager<Identity.Entity.User>",
             "Metadata": {
               "Common.PropertyName": "UserManager"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "user-roles",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "UserId"
             }
           }
         ],
