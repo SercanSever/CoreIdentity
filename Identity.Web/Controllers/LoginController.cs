@@ -295,5 +295,9 @@ namespace Identity.Web.Controllers
             return View("Error", errors);
          }
       }
+       public IActionResult Error()
+      {
+         return View();
+      }
    }
 }

@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Identity.Web.Controllers
 {
-   [Authorize(Roles="Admin")]
+   [Authorize]
    public class AdminController : BaseController
    {
       public AdminController(UserManager<User> userManager, RoleManager<Role> roleManager) : base(userManager, null, null, null, roleManager)
@@ -131,12 +131,18 @@ namespace Identity.Web.Controllers
          {
             if (assignRole.Exist)
             {
-                await _userManager.AddToRoleAsync(user,assignRole.RoleName);
-            }else{
-               await _userManager.RemoveFromRoleAsync(user,assignRole.RoleName);
+               await _userManager.AddToRoleAsync(user, assignRole.RoleName);
+            }
+            else
+            {
+               await _userManager.RemoveFromRoleAsync(user, assignRole.RoleName);
             }
          }
          return RedirectToAction("Home");
+      }
+      public void Logout()
+      {
+         _signInManager.SignOutAsync();
       }
    }
 }

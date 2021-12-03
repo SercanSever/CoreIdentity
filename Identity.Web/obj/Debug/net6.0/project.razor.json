@@ -16352,6 +16352,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Login\\Error.cshtml",
+      "TargetPath": "Views\\Login\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\Views\\Home\\AccessDenied.cshtml",
       "TargetPath": "Views\\Home\\AccessDenied.cshtml",
       "FileKind": "mvc"

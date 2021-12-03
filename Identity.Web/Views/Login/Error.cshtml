@@ -1,0 +1,14 @@
+@model List<string>
+@{
+   Layout = "_Layout";
+}
+
+
+<h2>Hata !</h2>
+<hr>
+<ul>
+   @foreach (var error in Model)
+   {
+      <li>@error</li>
+   }
+</ul>
