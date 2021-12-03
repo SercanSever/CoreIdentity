@@ -130,13 +130,17 @@ namespace Identity.Web.Controllers
       public async Task<IActionResult> ExchangeRedirect()
       {
          bool result = User.HasClaim(x => x.Type == "ExpireDateExchange");
+
          if (!result)
          {
-            Claim expireDateExchange = new Claim("ExpireDateExchange", DateTime.Now.AddDays(30).ToShortDateString(), ClaimValueTypes.String, "Internal");
-            await _userManager.AddClaimAsync(CurrentUser, expireDateExchange);
+            Claim ExpireDateExchange = new Claim("ExpireDateExchange", DateTime.Now.AddDays(30).Date.ToShortDateString(), ClaimValueTypes.String, "Internal");
+
+            await _userManager.AddClaimAsync(CurrentUser, ExpireDateExchange);
+
             await _signInManager.SignOutAsync();
             await _signInManager.SignInAsync(CurrentUser, true);
          }
+
          return RedirectToAction("Exchange");
       }
       [Authorize("ExchangePolicy")]
@@ -148,6 +152,7 @@ namespace Identity.Web.Controllers
 
       public IActionResult AccessDenied(string returnUrl)
       {
+
          if (returnUrl.Contains("ViolenceClaim"))
          {
             ViewBag.message = "Access denied. You're not 18 yet.";
@@ -155,6 +160,10 @@ namespace Identity.Web.Controllers
          else if (returnUrl.Contains("CityClaim"))
          {
             ViewBag.message = "Access denied. You're not living in İstanbul.";
+         }
+         else if (returnUrl.Contains("ExchangePolicy"))
+         {
+            ViewBag.message = "Access denied. Trial is over.";
          }
          else
          {
@@ -168,4 +177,5 @@ namespace Identity.Web.Controllers
       }
    }
 }
+
 
