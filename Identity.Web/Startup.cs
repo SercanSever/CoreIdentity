@@ -51,10 +51,15 @@ namespace Identity.Web
             });
          });
 
-         services.AddAuthentication().AddFacebook(opt =>
+         services.AddAuthentication()
+         .AddFacebook(opt =>
          {
             opt.AppId = Configuration["Authentication:Facebook:AppId"];
             opt.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+         })
+         .AddGoogle(opt=>{
+            opt.ClientId = Configuration["Authentication:Google:ClientID"];
+            opt.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
          });
 
          services.AddIdentity<User, Role>(opt =>

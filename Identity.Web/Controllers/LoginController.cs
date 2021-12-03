@@ -225,6 +225,18 @@ namespace Identity.Web.Controllers
 
          return new ChallengeResult("Facebook", properties);
       }
+
+      public IActionResult LoginWithGoogle(string ReturnUrl)
+      {
+        string RedirectUrl = Url.Action("ExternalResponse", "Login", new { ReturnUrl = ReturnUrl });
+
+         var properties = _signInManager.ConfigureExternalAuthenticationProperties("Google", RedirectUrl);
+
+         return new ChallengeResult("Facebook", properties);
+      }
+
+
+
       public async Task<IActionResult> ExternalResponse(string ReturnUrl = "/Home/Index")
       {
          ExternalLoginInfo info = await _signInManager.GetExternalLoginInfoAsync();
@@ -295,7 +307,7 @@ namespace Identity.Web.Controllers
             return View("Error", errors);
          }
       }
-       public IActionResult Error()
+      public IActionResult Error()
       {
          return View();
       }

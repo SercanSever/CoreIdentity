@@ -140,9 +140,10 @@ namespace Identity.Web.Controllers
          }
          return RedirectToAction("Home");
       }
-      public void Logout()
+      public IActionResult Logout()
       {
          _signInManager.SignOutAsync();
+         return RedirectToAction("SignIn","Login");
       }
    }
 }
