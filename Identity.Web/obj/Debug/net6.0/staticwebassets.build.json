@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SdN04C7Tjz99QMAa8GuJDXqkIsdxg+zgI3/PP8e8Gls=",
+  "Hash": "CR8Y4JMzmKPg37/MYqBDJGp+NRACWGJnWmD7VzXvNIg=",
   "Source": "Identity.Web",
   "BasePath": "_content/Identity.Web",
   "Mode": "Default",
@@ -678,6 +678,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Upload\\302cf89e-b9be-4dd0-9185-1bd712e10c5d.png"
+    },
+    {
+      "Identity": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\wwwroot\\Upload\\8f81e66f-cebe-4832-83a1-fa5271e156bd.png",
+      "SourceId": "Identity.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\wwwroot\\",
+      "BasePath": "_content/Identity.Web",
+      "RelativePath": "Upload/8f81e66f-cebe-4832-83a1-fa5271e156bd.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Upload\\8f81e66f-cebe-4832-83a1-fa5271e156bd.png"
     },
     {
       "Identity": "C:\\Users\\Sercan Sever\\Desktop\\CoreIdentity\\Identity.Web\\wwwroot\\Upload\\e17bbd91-d646-4026-91b1-ee7d180fe89a.png",
