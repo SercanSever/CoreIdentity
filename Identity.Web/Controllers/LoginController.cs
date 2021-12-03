@@ -272,9 +272,9 @@ namespace Identity.Web.Controllers
 
                      if (loginResult.Succeeded)
                      {
-                        //     await signInManager.SignInAsync(user, true);
+                        //     await signInManager.SignInAsync(user, true);  // like normal user
 
-                        await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, true);
+                        await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, true); //for facebok
 
                         return Redirect(ReturnUrl);
                      }
