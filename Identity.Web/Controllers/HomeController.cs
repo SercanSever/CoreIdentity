@@ -86,6 +86,16 @@ namespace Identity.Web.Controllers
          {
             var user = CurrentUser;
 
+            string phone = _userManager.GetPhoneNumberAsync(user).Result;
+            if (phone != updateUserViewModel.PhoneNumber)
+            {
+                if (_userManager.Users.Any(x=>x.PhoneNumber == updateUserViewModel.PhoneNumber))
+                {
+                    ModelState.AddModelError("","This phone number already exists");
+                    return View(updateUserViewModel);
+                }
+            }
+
             if (userImage != null && userImage.Length > 0)
             {
                var fileName = await _imageService.Add(userImage);
