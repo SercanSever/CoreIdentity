@@ -292,12 +292,12 @@ namespace Identity.Web.Controllers
                      }
                      else
                      {
-                        ModelState.AddModelError("","error");
+                        ModelState.AddModelError("", "error");
                      }
                   }
                   else
                   {
-                      ModelState.AddModelError("","error");
+                     ModelState.AddModelError("", "error");
                   }
                }
                else
