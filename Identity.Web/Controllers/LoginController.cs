@@ -228,11 +228,11 @@ namespace Identity.Web.Controllers
 
       public IActionResult LoginWithGoogle(string ReturnUrl)
       {
-        string RedirectUrl = Url.Action("ExternalResponse", "Login", new { ReturnUrl = ReturnUrl });
+         string RedirectUrl = Url.Action("ExternalResponse", "Login", new { ReturnUrl = ReturnUrl });
 
          var properties = _signInManager.ConfigureExternalAuthenticationProperties("Google", RedirectUrl);
 
-         return new ChallengeResult("Facebook", properties);
+         return new ChallengeResult("Google", properties);
       }
 
 
@@ -272,9 +272,9 @@ namespace Identity.Web.Controllers
                   user.UserName = info.Principal.FindFirst(ClaimTypes.Email).Value;
                }
 
-               User userResult = await _userManager.FindByEmailAsync(user.Email);
+               User user2 = await _userManager.FindByEmailAsync(user.Email);
 
-               if (userResult == null)
+               if (user2 == null)
                {
                   IdentityResult createResult = await _userManager.CreateAsync(user);
 
@@ -284,28 +284,36 @@ namespace Identity.Web.Controllers
 
                      if (loginResult.Succeeded)
                      {
-                        //     await signInManager.SignInAsync(user, true);  // like normal user
+                        //     await signInManager.SignInAsync(user, true);
 
-                        await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, true); //for facebok
+                        await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, true);
 
                         return Redirect(ReturnUrl);
+                     }
+                     else
+                     {
+                        ModelState.AddModelError("","error");
                      }
                   }
                   else
                   {
-                     IdentityResult loginResult = await _userManager.AddLoginAsync(userResult, info);
-
-                     await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, true);
-
-                     return Redirect(ReturnUrl);
+                      ModelState.AddModelError("","error");
                   }
                }
+               else
+               {
+                  IdentityResult loginResult = await _userManager.AddLoginAsync(user2, info);
+
+                  await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, true);
+
+                  return Redirect(ReturnUrl);
+               }
             }
-
-            List<string> errors = ModelState.Values.SelectMany(x => x.Errors).Select(y => y.ErrorMessage).ToList();
-
-            return View("Error", errors);
          }
+
+         List<string> errors = ModelState.Values.SelectMany(x => x.Errors).Select(y => y.ErrorMessage).ToList();
+
+         return View("Error", errors);
       }
       public IActionResult Error()
       {
