@@ -1,12 +1,10 @@
 @model List<User>
 @{
 
-
-
     Layout = "_AdminLayout";
 }
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -28,9 +26,7 @@
                             <td>@user.Id</td>
                             <td>@user.UserName</td>
                             <td>@user.Email</td>
-                            <td>
-                                <user-roles-tag-helper for-userId="@user.Id"></user-roles-tag-helper>
-                            </td>
+                            <td user-roles="@user.Id"></td>
                             <td><a class="btn btn-sm btn-outline-success" asp-action="AssignRole" asp-route-id="@user.Id">Assign
                                     Role</a></td>
                         </tr>
@@ -48,7 +44,7 @@
             </tbody>
         </table>
     </div>
-    <div class="col-md-4 mt-md-1">
+    <div class="col-md-4 mt-md-1 ml-md-4">
         <div class="m-md-1"> <a class="btn btn-sm btn-outline-primary btn-block" asp-action="Members"
                 asp-controller="Admin">Members</a></div>
         <div class="m-md-1"> <a class="btn btn-sm btn-outline-primary btn-block" asp-action="Roles"
@@ -56,6 +52,6 @@
         <div class="m-md-1"> <a class="btn btn-sm btn-outline-primary btn-block" asp-action="RoleCreate"
                 asp-controller="Admin">Create Role</a></div>
         @* <div class="m-md-1"> <a class="btn btn-sm btn-outline-primary btn-block" asp-action="Logout"
-                asp-controller="Admin">Logout</a></div> *@
+            asp-controller="Admin">Logout</a></div> *@
     </div>
 </div>

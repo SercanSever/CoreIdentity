@@ -5,16 +5,18 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Identity.Service.Helpers.CustomTagHelpers
 {
-   [HtmlTargetElement("user-roles-tag-helper")]
+   [HtmlTargetElement("td", Attributes = "user-roles")]
    public class UserRolesName : TagHelper
    {
-      [HtmlAttributeName("for-userId")]
-      public string UserId { get; set; }
       public UserManager<User> UserManager { get; set; }
+
       public UserRolesName(UserManager<User> userManager)
       {
          this.UserManager = userManager;
       }
+
+      [HtmlAttributeName("user-roles")]
+      public string UserId { get; set; }
 
       public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
       {
@@ -22,16 +24,14 @@ namespace Identity.Service.Helpers.CustomTagHelpers
 
          IList<string> roles = await UserManager.GetRolesAsync(user);
 
-         output.TagMode = TagMode.StartTagAndEndTag;
-
-         var sb = new StringBuilder();
+         string html = string.Empty;
 
          roles.ToList().ForEach(x =>
          {
-            sb.AppendFormat("<span class='badge badge-info'>  {0}  </span>", x);
+            html += $"<span class='badge badge-info'>  {x}  </span>";
          });
 
-         output.PreContent.SetHtmlContent(sb.ToString());
+         output.Content.SetHtmlContent(html);
       }
    }
 }
