@@ -96,7 +96,6 @@ namespace Identity.Web
          });
 
 
-
          services.AddControllersWithViews();
 
       }
