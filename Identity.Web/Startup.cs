@@ -66,7 +66,6 @@ namespace Identity.Web
          {
             opt.User.AllowedUserNameCharacters = "abcçdefgğhıijklmnoöpqrsştuüvwxyzABCÇDEFGĞHIİJKLMNOÖPQRSŞTUÜVWXYZ0123456789-._@+#=<>&%^'!";
             opt.User.RequireUniqueEmail = true;
-
             opt.Password.RequiredLength = 4;
             opt.Password.RequireNonAlphanumeric = false;
             opt.Password.RequireLowercase = false;
